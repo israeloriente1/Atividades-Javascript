@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Analisador de números</title>
+</head>
+<body>
+    <h1>Analisador de números</h1>
+
+    <section>
+        <h2>Informe os valores abaixo</h2>
+        <p>Número entre 1 e 100: 
+            <input type="number" name="valor" id="valor" min="1" max="100">
+            <input type="button" value="Adicionar" class="botao" onclick="adicionar()"> <!--Assim que clicado o valor informado será verificado e usado no function adicionar--> </p>
+        
+        <div id="valores"> <!--Irá receber a tabela com todos os valores que estiver sendo adicionado ou que já foi adicionado-->
+            
+        </div>
+
+        <input type="button" value="Finalizar" class="botao" onclick="finalizar()"> <!--Assim que clicado, irá coletar os valores informados e imprimir o resultado dentro do id -> resultado.-->
+
+        <div id="resultado"> <!--Recebera o resultado final com base nos valores adicionados-->
+
+        </div>
+    </section>
+
+    <footer>
+         &copy;Desenvolvido por IsraelOriente
+    </footer>
+    
+    <script src="procedimento.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Preenchimento de dados</title>
+</head>
+<body> 
+    <h1>Preenchimento de dados</h1>
+
+    <section>
+        <h2 id="titulo"> Por favor, informe quantas pessoas serão cadastradas </h2>
+
+        <div id="cadastros"> <!-- irá receber certas quantidades de inputs, quando a function dados() for chamado -->
+            <p>Total de pessoas: <input type="number" name="totalpessoas" id="totalpessoas" min="2" max="30" required></p>
+        </div>
+
+        <div id="botao">
+            <input type="button" value="Consultar" class="botao" onclick="dados()"> <!-- assim que dados() for chamado, será gerado os input o cadastro do total de pessoas que serão preenchidas -->
+        </div>
+    </section>
+    
+    <script src="logica.js"></script>
+</body>
+</html>

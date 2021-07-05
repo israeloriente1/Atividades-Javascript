@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Verificador de idade</title>
+</head>
+
+<body>
+    <h1>Verificador de Idade</h1>
+
+    <section>
+        <div>
+            <p>Ano de nascimento: <input type="number" name="ano" id="ano" required></p>
+            <p>Sexo: <input type="radio" name="sexo" id="masc" checked>
+                <label for="masc">Masculino</label>
+                <input type="radio" name="sexo" id="fem">
+                <label for="fem">Feminino</label>
+            </p>
+            <input type="button" value="Verificar" class="botao" onclick="verificador()"> <!-- function verificador irá realizar a alteração do conteúdo do id resultado, de acordo com o ano obtido no id ano -->
+        </div>
+        <div id="resultado">
+            </p>Preencha os dados acima para podemos realizar a verificação !</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy;Desenvolvido por IsraelOriente</p>
+    </footer>
+    
+    <script src="verificador.js"></script>
+</body>
+
+</html>
