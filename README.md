@@ -1,2 +1,3 @@
-# Atividades-Javascript
- Atividades de javascript do Curso em Vìdeo resolvidos
+# Atividades de Javascript resolvidas
+ 
+ As seguintes atividades foram criadas através do Curso em Vídeo
