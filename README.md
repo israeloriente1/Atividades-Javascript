@@ -1,6 +1,6 @@
 # Atividades de Javascript resolvidas
 
-Site das Atividades (Não recomendado navegar por dispositivos Mobile)
+Acesse as atividade [por aqui](https://israeloriente1.github.io/Atividades-Javascript/index.html) (Não recomendado navegar por dispositivos Mobile)
 
 ### Lista de Atividades
 
