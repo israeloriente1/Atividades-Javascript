@@ -68,6 +68,21 @@ footer > p {
     text-align: center;
 }
 
+a, a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+li:hover {
+    font-weight: 500;
+    margin-left: 4px;
+}
+
+
 
 
 
