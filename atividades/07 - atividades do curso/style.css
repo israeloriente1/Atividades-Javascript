@@ -30,8 +30,9 @@ p {
 section {
     background-color: rgb(241, 241, 241);
     color: black;
-    margin: 10px 100px auto;
-    width: auto;
+    max-width: 920px;
+    min-width: 320px;
+    margin: auto;
     padding-top: 6px;
     padding-right: 14px;
     padding-bottom: 6px;

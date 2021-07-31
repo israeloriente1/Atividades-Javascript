@@ -35,8 +35,9 @@ section {
     padding-right: 9px;
     padding-bottom: 1px;
     padding-left: 9px;
-    width: auto;
-    margin: auto 95px auto;
+    max-width: 920px;
+    min-width: 320px;
+    margin: auto;
     box-shadow: 1px 1px 6px #1b3e55;
 }
 
