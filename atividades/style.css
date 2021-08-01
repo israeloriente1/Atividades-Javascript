@@ -68,11 +68,13 @@ a, a:visited {
 
 li {
     margin-bottom: 10px;
+    width: fit-content;
+    transition-duration: 0.2s;    
 }
 
 li:hover {
     font-weight: 500;
-    margin-left: 4px;
+    margin-left: 10px;    
 }
 
 
