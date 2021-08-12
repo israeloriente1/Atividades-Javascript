@@ -54,7 +54,8 @@ div {
     font-weight: 600;
     color: white;
     width: 115px;
-    margin: auto
+    margin: auto;
+    transition-duration: 0.2s;
 }
 
 .botao:active {
