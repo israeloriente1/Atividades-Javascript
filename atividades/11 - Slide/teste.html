@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="teste.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>JavaScript - Criando Slides</h1>
+    
+    <div id="slide">
+        <button class="botaoSlideLeft" onclick="alterarSlide(-1)"><</button>
+            <script>
+                for (let s = 0; s < 5; s++){
+                    document.write(`
+                        <div class="divLoadSlide">
+                            <div class="tempLoadSlide"></div>
+                        </div>
+                    `);
+                }
+            </script>
+        <button class="botaoSlideRight" onclick="alterarSlide(1)">></button>
+    </div>
+    
+    <script src="teste.js"></script>
+</body>
+</html>
