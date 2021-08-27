@@ -1,0 +1,88 @@
+body {
+    background-image: linear-gradient(356deg, #7e353b, #F25E6B);
+    background-attachment: fixed;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+}
+
+div#jogo {
+    background-color: #112226;
+    max-width: 900px;
+    margin: auto;
+    border-radius: 7px;
+    border-style: solid;
+    border-color: #0C3B40;
+    box-shadow: 0px 0px 10px #73363B;
+    color: white;
+    padding: 25px;
+}
+
+div#linhasPalavra{
+    font-size: 2em;
+    margin: 10px;
+    text-align: center;
+}
+
+div#input{
+    max-width: 650px;
+    margin: auto;
+}
+
+div#chances {
+    text-align: center;
+    width: fit-content;
+    font-weight: 600;
+    font-size: 15px;
+    transition-duration: 0.5s;
+}
+
+.red {
+    color: #F25E6B;
+}
+
+span.letra {
+    font-size: 2em;
+    color: white;
+    padding-top: 0px;
+    padding-right: 14px;
+    padding-bottom: 25px;
+    padding-left: 14px;
+    text-align: center;
+    border: solid white;
+    border-radius: 6px;
+    height: 20px;
+    width: 25px;
+    background-color: #0C3B40;
+    transition-duration: 0.3s;
+    display: inline-block;
+    margin: 2px;
+}
+
+span {
+    font-size: 2em;
+    color: rgb(124, 124, 124);
+    padding-top: 0px;
+    padding-right: 14px;
+    padding-bottom: 25px;
+    padding-left: 14px;
+    text-align: center;
+    border: solid rgb(124, 124, 124);
+    border-radius: 6px;
+    height: 20px;
+    width: 25px;
+    background-color: #112226;
+    transition-duration: 0.3s;
+    display: inline-block;
+    margin: 2px;
+}
+
+.letra:hover {
+    background-color: #0a3035;
+    box-shadow: 0px 0px 6px #F25E6B;
+    border-color: #F25E6B;
+    color: #F25E6B;
+    width: 26px;
+}
