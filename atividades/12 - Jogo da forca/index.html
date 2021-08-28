@@ -9,16 +9,19 @@
 </head>
 <body>
     <footer>
-        <h1 id="palavra">Farmacia Silva</h1>  
+        <h1 id="palavra">JOGO DA FORCA ⚝</h1>  
     </footer>
     <div id="jogo">
         <div id="chances">
             CHANCES <br>6
         </div>
+        <div id="dica">
+
+        </div>
         <div id="input">
             <div id="linhasPalavra">
             
-            </div>
+            </div>            
             <div id="letras">
                 <span class="letra" id="0" onclick="verificar('a',0)">A</span>
                 <span class="letra" id="1" onclick="verificar('b',1)">B</span>
@@ -48,6 +51,7 @@
                 <span class="letra" id="25" onclick="verificar('z',25)">Z</span>
             </div>
         </div>
+        <button class="botao" onclick="novoJogo()">NOVO JOGO</button>
     </div>
     
     <script src="jogo.js"></script>

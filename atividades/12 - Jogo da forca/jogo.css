@@ -18,6 +18,7 @@ div#jogo {
     box-shadow: 0px 0px 10px #73363B;
     color: white;
     padding: 25px;
+    transition-duration: 0.5s;
 }
 
 div#linhasPalavra{
@@ -39,8 +40,13 @@ div#chances {
     transition-duration: 0.5s;
 }
 
-.red {
-    color: #F25E6B;
+div#dica {
+    text-align: center;
+    font-weight: 600;
+    font-size: 15px;
+    transition-duration: 0.5s;
+    margin-top: -40px;
+    margin-bottom: 10px;
 }
 
 span.letra {
@@ -85,4 +91,25 @@ span {
     border-color: #F25E6B;
     color: #F25E6B;
     width: 26px;
+}
+
+.red {
+    color: #F25E6B;
+}
+
+.botao {
+    display: none;
+    margin: auto;
+    margin-top: 20px;
+    padding: 5px;
+    border-radius: 7px;
+    font-weight: 700;
+    border: solid white;
+    background-color: white;
+    color: #0a3035;    
+    transition-duration: 0.2s;
+}
+
+.botao:hover {
+    box-shadow: 0px 0px 7px white;
 }
