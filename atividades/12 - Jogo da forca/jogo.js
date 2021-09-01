@@ -1,22 +1,5 @@
  /* Funcionamento do jogo:
-  Basicamente o jogo irá funcionar assim, uma palavra será gerada aletóriamente
-  pela a function sortear() e essa palavra terá cada letra colocada dentro do vetor (letras)
-  tendo um indice para cada letra da palavra guardado nesse vetor, um outro vetor (linhas) será criado
-  com exatamente o mesmo total de indice do vetor (letras) tendo a string "_" no lugar das letras e <br> nos indices
-  que tiver espaço do vetor (letras) que contém as letras da palavra, para que assim quando o usuário selecionar
-  uma letra que exista na palavra as mesma posições onde essa letra existe no vetor (letras)
-  será colocado no vetor (linhas), se todos os indices forem preenchidos pelas as letras que o usuário selecionou
-  a variável (isComplete = true) o que fará que o jogo acabe, caso o total de chances do usuário chegue a 0
-  o jogo também irá finalizar, onde o usuário só terá a opção de clicar no botão (NOVO JOGO)
-  onde irá repetir todo o precesso acima.
-  Ex:
-    palavra = "TESTE TESTE";
-    letras = ["T","E","S","T","E"," ","T","E","S","T","E"]; indice: 0 a 10
-    linhas = ["_","_","_","_","_","<br>","_","_","_","_","_"]; indice: 0 a 10
-    usuário selecionou a letra = "E";
-    linhas = ["_","E","_","_","E","<br>","_","E","_","_","E"];
-    usuário selecionou a letra = "T";
-    linhas = ["T","E","_","T","E","<br>","T","E","_","T","E"];
+  Basicamente o jogo irá funcionar assim, uma palavra será gerada aletóriamente através da function sortear() onde essa palavra será guardada dentro da variável (palavra), a variável (linhas) irá receber cada letra da (palavra) como "_" e cada espaço como "<br>", sempre que o usuário escolher uma letra essa letra ficará inacessível até a proxima partida e irá verificar se existe dentro da (palavra), caso exista, as posições onde se encontra a letra será adicionada nas exatas posições encontradas da (palavra) dentro da variável (linhas).
    */
 
 listaPalavras = [
@@ -47,9 +30,9 @@ var palavra; // Receberá a palavra que for gerada dentro da function sortear().
 var palavraAnterior; // Rebererá nome da palavra que tiver sido gerado no jogo anterior, que será usado para que a nova palavra gerada não seja igual a anterior.
 var spanLetra; // Será usado para pegar a indice do span que foi selecionado com a letra que o usuário selecionou na function verificar().
 var categoria; // Receberá a categoria gerada de acordo com o valor random gerado dentro da function sortear()
-var letras; // Irá receber cada letra da palavra em suas devidas posições.
-var linhas; // Caso a letra selecionada pelo o usuário exista na palavra, será colocado na mesma posição em que tiver sido encontrado no indice do vetor (letras), caso o contrário a posição terá o valor "_ ".
-sortear(); // Irá guardar cada letra da variável palavra dentro do vetor (letras) e imprimir os tratos que serão preenchidos pelas as letras corretas que estiver na palavra quando o usuário clicar.
+var palavraConv; // Receberá a palavra formatada da variável (linhas) que ficará na tela enquanto o usuário joga, sendo [a-z] = "_" e " "(espaço) = "<br>".
+var linhas; // Irá receber as letras da variável (palavra) como "_".
+sortear(); // Irá guardar cada letra da variável palavra dentro de (palavra).
 
 function sortear(){ // Irá gerar um valor random entre 0 e 2, que será usado para filtrar a categoria da variável (listaPalavras) de acordo com o valor que tiver sido gerado (como está no switch(randomValor))
     let randomValor = parseInt(Math.random() * 3);
@@ -73,24 +56,15 @@ function sortear(){ // Irá gerar um valor random entre 0 e 2, que será usado p
     if (palavra == palavraAnterior){ // Caso a palavra gerada seja igual a anterior
         sortear();
     }
-    linhas = [];
-    letras = [];
-    for (let r = 0; r <= palavra.length - 1; r++){
-        letras[r] = palavra.charAt(r); // Irá guardar cada letra da palavra dentro do vetor (letras).
-        letras[r] == " " ? linhas[r] = "<br>" : linhas[r] = "_ ";
-    }
-    divPalavra.innerHTML = "";
-    for (let r of linhas){ // Imprimi as letras que foram selecionadas de maneira correta.
-        divPalavra.innerHTML += r;
-    }
+    linhas = palavra.replace(/[a-z]/ig, "_");
+    palavraConv = linhas.replace(" ", "<br>").replace(/[_]/ig, "_ ");
+    divPalavra.innerHTML = palavraConv;
     isComplete = false;
 }
 
 function imprimirLinhaAtual(){ // Apaga o valor atual e imprimi as letras que foram selecionadas de maneira correta.
-    divPalavra.innerHTML = "";
-    for (let r of linhas){ 
-        divPalavra.innerHTML += r;
-    }
+    palavraConv = linhas.replace(" ", "<br>").replace(/[_]/ig, "_ ");
+    divPalavra.innerHTML = palavraConv;
 }
 
 function verificar(letra, posicao){ // Irá analisar a letra e a posição informado, o valor do parâmetro (posicao) será usado na variável (spanLetra) pagar pegar o id com o valor do parâmetro (posicao) 
@@ -99,7 +73,7 @@ function verificar(letra, posicao){ // Irá analisar a letra e a posição infor
     if (chances >= 1 && isComplete == false){
         if (spanLetra.hasAttribute("class", "letra")){
             spanLetra.removeAttribute("class", "letra"); // Mudará o estilo da letra selecionada, o que deixará não acessível até o próximo jogo
-            letras.includes(letra) ? isInclude = true : isInclude = false; // Irá verificar se a letra selecionada exista na palavra atual
+            palavra.indexOf(letra) > -1 ? isInclude = true : isInclude = false; // Irá verificar se a letra selecionada exista na palavra atual
             if (isInclude == false){ // Caso a letra NÃO exista na palavra, será diminuído o total de chances para jogar novamente.
                 chances--;
                 if (chances > 2){
@@ -115,12 +89,16 @@ function verificar(letra, posicao){ // Irá analisar a letra e a posição infor
                     }
                 }
             }else if (isInclude == true){ // Os índices do vetor (letras) que tiverem a letra selecionada será adicionado no mesmo índice do vetor (linhas).
-                for (let l in letras){
-                    if (letras[l] == letra){ // Se no mesno indice do vetor(letras) tiver o mesmov valor do parâmetro letra, então o parâmetro (letra) será adicionado neste ínidice dentro do vetor (linhas).
-                        linhas[l] = letra;
+                for (let l in palavra){
+                    if (palavra.charAt(l) == letra){
+                        if (l == 0){
+                            linhas = `${linhas.charAt(0).replace("_", letra)}${linhas.substr(1)}`;
+                        }else{
+                            linhas = `${linhas.substr(0, l)}${linhas.charAt(l).replace("_", letra)}${linhas.substr(parseInt(l) + 1)}`;
+                        }
                     }
                 }
-                linhas.includes("_ ") ? isComplete = false : isComplete = true;
+                linhas.indexOf("_") > -1 ? isComplete = false : isComplete = true;
                 if (isComplete == true){
                     botao.style.display = "block";
                     if (divChance.hasAttribute("class", "red")){
@@ -131,7 +109,7 @@ function verificar(letra, posicao){ // Irá analisar a letra e a posição infor
                 imprimirLinhaAtual(); // Irá atualizar o status da divLinhas, onde contém as linhas que recebem as letras conforme for selecionando e completando a palavra.
             }
         }
-        isInclude = false;
+        isInclude = false;        
     }   
 }
 
