@@ -49,6 +49,10 @@ div#dica {
     margin-bottom: 10px;
 }
 
+div#letras {
+    text-align: center;
+}
+
 span.letra {
     font-size: 2em;
     color: white;
@@ -64,7 +68,7 @@ span.letra {
     background-color: #0C3B40;
     transition-duration: 0.3s;
     display: inline-block;
-    margin: 2px;
+    margin: 3.5px;
 }
 
 span {
@@ -82,7 +86,8 @@ span {
     background-color: #112226;
     transition-duration: 0.3s;
     display: inline-block;
-    margin: 2px;
+    cursor: pointer;
+    margin: 3.5px;
 }
 
 .letra:hover {
@@ -90,7 +95,6 @@ span {
     box-shadow: 0px 0px 6px #F25E6B;
     border-color: #F25E6B;
     color: #F25E6B;
-    width: 26px;
 }
 
 .red {
