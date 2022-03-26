@@ -109,6 +109,7 @@ function verificar(letra, posicao){ // Irá analisar a letra e a posição infor
         if (spanLetra.hasAttribute("class", "letra")){
             spanLetra.removeAttribute("class", "letra"); // Mudará o estilo da letra selecionada, o que deixará não acessível até o próximo jogo
             palavra.indexOf(letra) > -1 ? isInclude = true : isInclude = false; // Irá verificar se a letra selecionada exista na palavra atual
+            
             if (isInclude == false){ // Caso a letra NÃO exista na palavra, será diminuído o total de chances para jogar novamente.
                 chances--;                
                 if (chances > 2){
