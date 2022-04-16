@@ -1,6 +1,8 @@
 # Atividades de Javascript resolvidas
 
-Acesse as atividade [por aqui](https://israeloriente1.github.io/Atividades-Javascript/index.html) (Não recomendado navegar por dispositivos Mobile)
+Projetos criados com objetivo de aprender a linguagem e desenvolver o aprendizado obtido pela plataforma Curso em Vídeo.
+
+Acesse as atividade [por aqui](https://israeloriente1.github.io/Atividades-Javascript/index.html)
 
 ### Lista de Atividades
 
