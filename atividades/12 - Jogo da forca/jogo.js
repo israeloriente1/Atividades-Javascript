@@ -97,7 +97,7 @@ function sortear(){ // Irá gerar um valor random entre 0 e 2, que será usado p
 }
 
 function imprimirLinhaAtual(){ // Apaga o valor atual e imprimi as letras que foram selecionadas de maneira correta.
-    palavraConv = linhas.replace(" ", "<br>").replace(/[_]/ig, "_ ");
+    palavraConv = linhas.replace(/\s/g, "<br>").replace(/[_]/ig, "_ ");
     divPalavra.innerHTML = palavraConv;
 }
 
