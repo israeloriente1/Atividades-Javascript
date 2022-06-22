@@ -2,6 +2,25 @@
   Basicamente o jogo irá funcionar assim, uma palavra será gerada aletóriamente através da function sortear() onde essa palavra será guardada dentro da variável (palavra), a variável (linhas) irá receber cada letra da (palavra) como "_" e cada espaço como "<br>", sempre que o usuário escolher uma letra essa letra ficará inacessível até a proxima partida e irá verificar se existe dentro da (palavra), caso exista, as posições onde se encontra a letra será adicionada nas exatas posições encontradas da (palavra) dentro da variável (linhas).
    */
 
+
+document.body.onkeydown = (key) => { // Irá verificar as teclas digitadas
+    let letra = key.key.toUpperCase();
+
+    if(key.code.indexOf("Key") > -1){
+        let letras = document.getElementById("letras").children;
+        
+        for (let i in letras){
+            if (typeof(letras[i]) == "object"){
+                if (letras[i].innerText.toUpperCase() == letra){
+                    verificar(letra, i);
+                }
+            }
+        }
+    }else if (isComplete && key.key == "Enter"){
+        novoJogo();
+    }
+}
+
 listaPalavras = [
     {dica: 'Profissão', palavra: 'ADMINISTRADOR'},
     {dica: 'Profissão', palavra: 'ADVOGADO'},
@@ -14,7 +33,7 @@ listaPalavras = [
     {dica: 'Profissão', palavra: 'DESPACHANTE ADUANEIRO'},
     {dica: 'Profissão', palavra: 'ECONOMISTA'},
     {dica: 'Profissão', palavra: 'ENFERMAGEM'},
-    {dica: 'Profissão',palavra: 'FISIOTERAPEUTA E TERAPEUTA OCUPACIONAL'},
+    {dica: 'Profissão', palavra: 'FISIOTERAPEUTA E TERAPEUTA OCUPACIONAL'},
     {dica: 'Profissão', palavra: 'GARIMPEIRO'},
     {dica: 'Profissão', palavra: 'JORNALISTA'},
     {dica: 'Profissão', palavra: 'LEILOEIRO'},
@@ -53,7 +72,7 @@ divChance = document.getElementById("chances");
 divDica = document.getElementById("dica");
 botao = document.getElementsByClassName("botao")[0];
 isInclude = false; // Será usado na function verificar(), caso a letra seja encontrado na palavra ficará TRUE caso o contrário FALSE.
-isComplete = false;
+isComplete = false; // Receberá true se o jogo tiver terminando, ganhando ou com as chances zeradas.
 var palavra; // Receberá a palavra que for gerada dentro da function sortear().
 var palavraAnterior; // Rebererá nome da palavra que tiver sido gerado no jogo anterior, que será usado para que a nova palavra gerada não seja igual a anterior.
 var spanLetra; // Será usado para pegar a indice do span que foi selecionado com a letra que o usuário selecionou na function verificar().
@@ -91,13 +110,13 @@ function sortear(){ // Irá gerar um valor random entre 0 e 2, que será usado p
     }
 
     linhas = palavra.replace(/[a-z]/ig, "_");
-    palavraConv = linhas.replace(" ", "<br>").replace(/[_]/ig, "_ ");
+    palavraConv = linhas.replace(" ", "<br>").replace(/[_]/ig, "_");
     divPalavra.innerHTML = palavraConv;
     isComplete = false;
 }
 
 function imprimirLinhaAtual(){ // Apaga o valor atual e imprimi as letras que foram selecionadas de maneira correta.
-    palavraConv = linhas.replace(/\s/g, "<br>").replace(/[_]/ig, "_ ");
+    palavraConv = linhas.replace(/\s/g, "<br>").replace(/[_]/ig, "_");
     divPalavra.innerHTML = palavraConv;
 }
 
@@ -119,8 +138,9 @@ function verificar(letra, posicao){ // Irá analisar a letra e a posição infor
                         divChance.setAttribute("class", "red")
                         divChance.innerHTML = `CHANCES <br>${chances}`;
                     }else {
+                        isComplete = true;
                         divChance.innerHTML = "GAME <br> OVER";
-                        botao.style.display = "block";
+                        botao.setAttribute("class", "show");
                         divDica.innerHTML = `PALAVRA: <br> ${palavra}`
                     }
                 }
@@ -139,7 +159,7 @@ function verificar(letra, posicao){ // Irá analisar a letra e a posição infor
                 linhas.indexOf("_") > -1 ? isComplete = false : isComplete = true;
 
                 if (isComplete == true){
-                    botao.style.display = "block";
+                    botao.setAttribute("class", "show");
                     if (divChance.hasAttribute("class", "red")){
                         divChance.removeAttribute("class", "red");
                     }
@@ -167,5 +187,5 @@ function novoJogo(){ // Irá criar um novo jogo, deixando todos os botões acess
         divChance.removeAttribute("Class", "red");
     }
     sortear(); // Irá guardar cada letra da variável palavra dentro do vetor (letras) e imprimir os tratos que serão preenchidos pelas as letras corretas que estiver na palavra quando o usuário clicar.
-    botao.style.display = "none";
+    botao.removeAttribute("class", "show");
 }
